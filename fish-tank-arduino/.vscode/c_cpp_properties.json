@@ -2,25 +2,6 @@
     "version": 4,
     "configurations": [
         {
-            "name": "Win32",
-            "compilerPath": "D:/Tools/mingw64/bin/gcc.exe",
-            "compilerArgs": [],
-            "intelliSenseMode": "windows-gcc-x64",
-            "includePath": [
-                "${workspaceFolder}/**",
-                "${workspaceFolder}/tests/flv"
-            ],
-            "forcedInclude": [],
-            "cStandard": "c17",
-            "cppStandard": "c++17",
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE",
-                "HAVE_CONFIG_H"
-            ]
-        },
-        {
             "name": "Arduino",
             "compilerPath": "C:\\Users\\Chiro\\AppData\\Local\\Arduino15\\packages\\esp32\\tools\\xtensa-esp32-elf-gcc\\1.22.0-80-g6c4433a-5.2.0\\bin\\xtensa-esp32-elf-g++",
             "compilerArgs": [
@@ -106,8 +87,8 @@
                 "C:\\Users\\Chiro\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.4\\tools\\sdk\\include\\fb_gfx",
                 "C:\\Users\\Chiro\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.4\\cores\\esp32",
                 "C:\\Users\\Chiro\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.4\\variants\\esp32",
-                "C:\\Users\\Chiro\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.4\\libraries\\WiFi\\src",
                 "C:\\Users\\Chiro\\Documents\\Arduino\\libraries\\ESP32Servo\\src",
+                "C:\\Users\\Chiro\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.4\\libraries\\WiFi\\src",
                 "c:\\users\\chiro\\appdata\\local\\arduino15\\packages\\esp32\\tools\\xtensa-esp32-elf-gcc\\1.22.0-80-g6c4433a-5.2.0\\xtensa-esp32-elf\\include\\c++\\5.2.0",
                 "c:\\users\\chiro\\appdata\\local\\arduino15\\packages\\esp32\\tools\\xtensa-esp32-elf-gcc\\1.22.0-80-g6c4433a-5.2.0\\xtensa-esp32-elf\\include\\c++\\5.2.0\\xtensa-esp32-elf",
                 "c:\\users\\chiro\\appdata\\local\\arduino15\\packages\\esp32\\tools\\xtensa-esp32-elf-gcc\\1.22.0-80-g6c4433a-5.2.0\\xtensa-esp32-elf\\include\\c++\\5.2.0\\backward",

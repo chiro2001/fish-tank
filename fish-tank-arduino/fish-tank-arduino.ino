@@ -1,5 +1,10 @@
-#include "esp_camera.h"
+// #include <ESP32PWM.h>
+// #include <ESP32Servo.h>
+// #include <ESP32Tone.h>
 #include <WiFi.h>
+#include <analogWrite.h>
+
+#include "esp_camera.h"
 
 //
 // WARNING!!! Make sure that you have either selected ESP32 Wrover Module,
@@ -15,15 +20,25 @@
 
 #include "camera_pins.h"
 
-const char* ssid = "504B";
-const char* password = "2001106504B";
+// const char* ssid = "504B";
+// const char* password = "2001106504B";
+const char* ssid = "HITSZ";
+const char* password = "";
+
+// Servo servo;
+// Published values for SG90 servos; adjust if needed
+int minUs = 1000;
+int maxUs = 2000;
+int servoPin = 14;
 
 void startCameraServer();
 
 void setup() {
+  ESP32PWM::allocateTimer(0);
   Serial.begin(115200);
   Serial.setDebugOutput(true);
   Serial.println();
+  // servo.setPeriodHertz(50);  // Standard 50hz servo
 
   camera_config_t config;
   config.ledc_channel = LEDC_CHANNEL_0;
@@ -46,8 +61,9 @@ void setup() {
   config.pin_reset = RESET_GPIO_NUM;
   config.xclk_freq_hz = 20000000;
   config.pixel_format = PIXFORMAT_JPEG;
-  //init with high specs to pre-allocate larger buffers
-  if(psramFound()){
+  // config.pixel_format = PIXFORMAT_RGB888;
+  // init with high specs to pre-allocate larger buffers
+  if (psramFound()) {
     config.frame_size = FRAMESIZE_UXGA;
     config.jpeg_quality = 10;
     config.fb_count = 2;
@@ -56,6 +72,8 @@ void setup() {
     config.jpeg_quality = 12;
     config.fb_count = 1;
   }
+
+  // config.frame_size = FRAMESIZE_UXGA;
 
 #if defined(CAMERA_MODEL_ESP_EYE)
   pinMode(13, INPUT_PULLUP);
@@ -70,14 +88,14 @@ void setup() {
     return;
   }
 
-  sensor_t * s = esp_camera_sensor_get();
-  //initial sensors are flipped vertically and colors are a bit saturated
+  sensor_t* s = esp_camera_sensor_get();
+  // initial sensors are flipped vertically and colors are a bit saturated
   if (s->id.PID == OV3660_PID) {
-    s->set_vflip(s, 1);//flip it back
-    s->set_brightness(s, 1);//up the blightness just a bit
-    s->set_saturation(s, -2);//lower the saturation
+    s->set_vflip(s, 1);        // flip it back
+    s->set_brightness(s, 1);   // up the blightness just a bit
+    s->set_saturation(s, -2);  // lower the saturation
   }
-  //drop down frame size for higher initial frame rate
+  // drop down frame size for higher initial frame rate
   s->set_framesize(s, FRAMESIZE_QVGA);
 
 #if defined(CAMERA_MODEL_M5STACK_WIDE)
@@ -103,7 +121,21 @@ void setup() {
   Serial.println("' to connect");
 }
 
+int pos = 0;
+bool feed_run = false;
+const int feed_size = 3;
+
 void loop() {
-  // put your main code here, to run repeatedly:
-  delay(10000);
+  // servo.attach(servoPin, minUs, maxUs);
+  // if (feed_run) {
+  //   int feeding = feed_size;
+  //   while (feeding--) {
+  //     servo.write(0);
+  //     delay(2000);
+  //     servo.write(90);
+  //     delay(2000);
+  //   }
+  //   feed_run = false;
+  // }
+  delay(2000);
 }

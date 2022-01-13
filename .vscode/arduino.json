@@ -1,0 +1,5 @@
+{
+    "port": "COM14",
+    "board": "esp32:esp32:esp32cam",
+    "sketch": "fish-tank-arduino\\fish-tank-arduino.ino"
+}
